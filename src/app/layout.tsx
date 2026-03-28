@@ -22,12 +22,12 @@ export const metadata: Metadata = {
   },
   description:
     "AI Developer building intelligent solutions at the intersection of AI and enterprise technology. Specializing in AI agents, RAG pipelines, and modern web development.",
-  metadataBase: new URL("https://vikas-marwadi.vercel.app"),
+  metadataBase: new URL("https://vikas-marwadi.github.io/portfolio"),
   openGraph: {
     title: "Vikas Marwadi — AI Developer",
     description:
       "AI Developer building intelligent solutions at the intersection of AI and enterprise technology.",
-    url: "https://vikas-marwadi.vercel.app",
+    url: "https://vikas-marwadi.github.io/portfolio",
     siteName: "Vikas Marwadi",
     locale: "en_AU",
     type: "website",

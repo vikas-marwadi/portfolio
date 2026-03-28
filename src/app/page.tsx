@@ -28,7 +28,7 @@ export default function Home() {
             "@type": "Person",
             name: "Vikas Marwadi",
             jobTitle: "AI Developer",
-            url: "https://vikas-marwadi.vercel.app",
+            url: "https://vikas-marwadi.github.io/portfolio",
             email: "vikas.m1410@gmail.com",
             sameAs: [
               "https://github.com/vikas-marwadi",
