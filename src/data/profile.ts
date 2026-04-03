@@ -1,15 +1,15 @@
 export const profile = {
   name: "Vikas Marwadi",
-  role: "AI Developer",
-  tagline: "Building intelligent solutions at the intersection of AI and enterprise technology",
+  role: "Data + AI Engineer",
+  tagline: "ETL Pipelines · AI Agents · Enterprise SaaS · Cloud Architecture · LLM Integration",
   email: "vikas.m1410@gmail.com",
   github: "https://github.com/vikas-marwadi",
   linkedin: "https://linkedin.com/in/vikas-marwadi",
   location: "Melbourne, Australia",
   bio: [
-    "I'm an AI Developer passionate about leveraging artificial intelligence to solve real-world business challenges. With a strong foundation in computer science and hands-on experience across the full AI/ML stack, I build intelligent systems that drive measurable impact.",
-    "My expertise spans from developing custom AI agents and RAG pipelines to building enterprise dashboards and automating complex workflows. I thrive at the intersection of cutting-edge AI research and practical engineering.",
-    "Currently focused on AI-powered solutions including intelligent support systems, automated reporting, and multi-agent architectures that help organizations work smarter.",
+    "I'm a Data + AI Engineer passionate about building end-to-end data pipelines and AI-powered systems that solve real business challenges. With a strong foundation in computer science and hands-on experience across ETL, cloud architecture, and the full AI/ML stack, I deliver intelligent solutions that drive measurable impact.",
+    "My expertise spans from designing ETL pipelines and enterprise data platforms to developing custom AI agents, RAG systems, and LLM integrations. I thrive at the intersection of data engineering and artificial intelligence, building systems that transform raw data into actionable insights.",
+    "Currently focused on enterprise SaaS solutions including AI-powered support systems, automated reporting pipelines, multi-agent architectures, and cloud-native data platforms that help organizations work smarter.",
   ],
   education: {
     degree: "Bachelor of Computer Science",
@@ -32,24 +32,26 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    role: "AI Developer",
+    role: "Data + AI Engineer",
     company: "ForIT Solutions",
     period: "2024 - Present",
     current: true,
     highlights: [
+      "Architecting ETL pipelines and data platforms for enterprise client reporting and analytics",
       "Developing AI-powered support ticketing system with intelligent routing and auto-classification",
-      "Building multi-agent architectures using Claude API for automated client reporting",
-      "Creating enterprise dashboards with Next.js, React, and real-time data visualization",
-      "Implementing RAG pipelines for knowledge base search across client documentation",
-      "Automating IT management workflows with Microsoft Graph API and Power Automate",
+      "Building multi-agent architectures using Claude API for automated reporting pipelines",
+      "Creating enterprise SaaS dashboards with Next.js, React, and real-time data visualization",
+      "Implementing RAG pipelines and LLM integrations for knowledge base search across client documentation",
+      "Designing cloud architecture on Azure with Microsoft Graph API and Power Automate automation",
     ],
     tech: [
+      "Python",
       "TypeScript",
+      "Azure",
+      "SQL",
       "Next.js",
       "Claude API",
-      "Python",
-      "Azure",
-      "Microsoft Graph",
+      "Power BI",
     ],
   },
   {
@@ -98,7 +100,20 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: "AI & Machine Learning",
+    name: "Data Engineering",
+    skills: [
+      "ETL Pipelines",
+      "SQL",
+      "PostgreSQL",
+      "Data Modeling",
+      "Power BI",
+      "Data Warehousing",
+      "Supabase",
+      "SQLite",
+    ],
+  },
+  {
+    name: "AI & LLM Integration",
     skills: [
       "Claude API",
       "OpenAI API",
@@ -111,10 +126,21 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
+    name: "Cloud & Infrastructure",
+    skills: [
+      "Azure",
+      "Microsoft Graph API",
+      "Power Automate",
+      "Docker",
+      "Vercel",
+      "CI/CD",
+    ],
+  },
+  {
     name: "Languages",
     skills: [
-      "TypeScript",
       "Python",
+      "TypeScript",
       "JavaScript",
       "SQL",
       "PowerShell",
@@ -122,34 +148,14 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    name: "Cloud & Data",
-    skills: [
-      "Azure",
-      "Microsoft Graph API",
-      "Supabase",
-      "PostgreSQL",
-      "Vercel",
-      "Docker",
-    ],
-  },
-  {
-    name: "Visualization",
-    skills: [
-      "Power BI",
-      "Recharts",
-      "D3.js",
-      "Tailwind CSS",
-      "Framer Motion",
-    ],
-  },
-  {
-    name: "Web Development",
+    name: "Web & SaaS Development",
     skills: [
       "Next.js",
       "React",
       "Node.js",
       "REST APIs",
       "GraphQL",
+      "Tailwind CSS",
       "Git",
     ],
   },

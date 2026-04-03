@@ -17,16 +17,16 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Vikas Marwadi — AI Developer",
+    default: "Vikas Marwadi — Data + AI Engineer",
     template: "%s | Vikas Marwadi",
   },
   description:
-    "AI Developer building intelligent solutions at the intersection of AI and enterprise technology. Specializing in AI agents, RAG pipelines, and modern web development.",
+    "Data + AI Engineer building ETL pipelines, AI agents, and enterprise SaaS solutions. Specializing in cloud architecture, LLM integration, and modern data platforms.",
   metadataBase: new URL("https://vikas-marwadi.github.io/portfolio"),
   openGraph: {
-    title: "Vikas Marwadi — AI Developer",
+    title: "Vikas Marwadi — Data + AI Engineer",
     description:
-      "AI Developer building intelligent solutions at the intersection of AI and enterprise technology.",
+      "Data + AI Engineer building ETL pipelines, AI agents, and enterprise SaaS solutions.",
     url: "https://vikas-marwadi.github.io/portfolio",
     siteName: "Vikas Marwadi",
     locale: "en_AU",
@@ -34,9 +34,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vikas Marwadi — AI Developer",
+    title: "Vikas Marwadi — Data + AI Engineer",
     description:
-      "AI Developer building intelligent solutions at the intersection of AI and enterprise technology.",
+      "Data + AI Engineer building ETL pipelines, AI agents, and enterprise SaaS solutions.",
   },
   robots: {
     index: true,
