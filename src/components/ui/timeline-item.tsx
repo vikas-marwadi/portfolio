@@ -42,6 +42,11 @@ export function TimelineItem({ experience, index }: TimelineItemProps) {
           </div>
           <p className="mb-3 text-sm font-medium text-primary">
             {experience.company}
+            {experience.location && (
+              <span className="font-normal text-muted-foreground">
+                {" "}· {experience.location}
+              </span>
+            )}
           </p>
           <ul className="mb-4 space-y-1.5">
             {experience.highlights.map((highlight) => (

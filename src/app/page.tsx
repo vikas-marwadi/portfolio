@@ -36,13 +36,19 @@ export default function Home() {
             ],
             address: {
               "@type": "PostalAddress",
-              addressLocality: "Melbourne",
-              addressCountry: "AU",
+              addressLocality: "Toronto",
+              addressCountry: "CA",
             },
-            alumniOf: {
-              "@type": "EducationalOrganization",
-              name: "Deakin University",
-            },
+            alumniOf: [
+              {
+                "@type": "EducationalOrganization",
+                name: "Humber College",
+              },
+              {
+                "@type": "EducationalOrganization",
+                name: "Charotar University of Science & Technology",
+              },
+            ],
             knowsAbout: [
               "Data Engineering",
               "ETL Pipelines",

@@ -8,7 +8,7 @@ import { profile } from "@/data/profile";
 const quickFacts = [
   { icon: MapPin, label: "Location", value: profile.location },
   { icon: Briefcase, label: "Role", value: profile.role },
-  { icon: GraduationCap, label: "Education", value: profile.education.degree },
+  { icon: GraduationCap, label: "Education", value: profile.education[0].degree },
   { icon: Languages, label: "Languages", value: profile.languages.join(", ") },
 ];
 
@@ -34,25 +34,30 @@ export function About() {
               </div>
 
               {/* Education */}
-              <div className="mt-8 rounded-lg border border-border bg-card p-5">
-                <div className="flex items-start gap-3">
-                  <GraduationCap className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-                  <div>
-                    <h3 className="font-semibold text-foreground">
-                      {profile.education.degree}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      {profile.education.university} &middot;{" "}
-                      {profile.education.location}
-                    </p>
-                    <p className="text-sm text-muted-foreground">
-                      {profile.education.period}
-                    </p>
-                    <p className="mt-1 text-sm font-medium text-primary">
-                      {profile.education.honors}
-                    </p>
+              <div className="mt-8 space-y-4">
+                {profile.education.map((edu, i) => (
+                  <div key={i} className="rounded-lg border border-border bg-card p-5">
+                    <div className="flex items-start gap-3">
+                      <GraduationCap className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+                      <div>
+                        <h3 className="font-semibold text-foreground">
+                          {edu.degree}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">
+                          {edu.university} &middot; {edu.location}
+                        </p>
+                        <p className="text-sm text-muted-foreground">
+                          {edu.period}
+                        </p>
+                        {edu.honors && (
+                          <p className="mt-1 text-sm font-medium text-primary">
+                            {edu.honors}
+                          </p>
+                        )}
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
             </ScrollReveal>
           </div>

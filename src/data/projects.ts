@@ -10,44 +10,51 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "AI Support Ticketing System",
+    title: "Multi-Agent AI Platform",
     description:
-      "Intelligent support portal with AI-powered ticket classification, routing, and automated responses. Features multi-tenant architecture, asset management, and client reporting dashboards.",
+      "Architected a 129+ tool multi-agent platform on Microsoft Teams using Claude Opus/Sonnet. Integrates Microsoft 365, CRM, GitHub, and browser automation with role-based access and session isolation — deployed on Azure Container Apps.",
     category: "AI / Enterprise",
-    tech: ["Next.js", "TypeScript", "Supabase", "Claude API", "Tailwind CSS"],
+    tech: ["Claude API", "TypeScript", "Azure Container Apps", "Microsoft Graph"],
     featured: true,
   },
   {
-    title: "Report Tracker",
+    title: "AgentDB — LLM Database Agent",
     description:
-      "Full-stack work management application for tracking client reports, meetings, and action items. Includes time logging, meeting prep workflows, and MCP server integration for AI-assisted project management.",
-    category: "Full Stack",
-    tech: ["Next.js", "TypeScript", "SQLite", "MCP", "Tailwind CSS"],
-    featured: true,
-    github: "https://github.com/vikas-marwadi",
-  },
-  {
-    title: "Multi-Agent Reporting Pipeline",
-    description:
-      "Automated client reporting system using multi-agent architecture. Claude-powered agents analyze data, generate insights, and produce structured meeting reports with action items.",
-    category: "AI / Automation",
-    tech: ["Python", "Claude API", "Microsoft Graph", "Power Automate"],
+      "An LLM-agnostic database agent enabling any AI model to safely explore schemas, run queries, and manage DDL. Features a 3-tier permission system and sandbox mode for secure database interaction.",
+    category: "AI / Data",
+    tech: ["Python", "SQL", "Claude API", "FastAPI"],
     featured: true,
   },
   {
-    title: "Enterprise Dashboard Suite",
+    title: "AI Support Ticketing Portal",
     description:
-      "Collection of data visualization dashboards for IT service management. Real-time KPI tracking, hardware inventory management, and client scorecard generation.",
-    category: "Data Visualization",
-    tech: ["React", "TypeScript", "Recharts", "Supabase", "Tailwind CSS"],
+      "White-label multi-tenant IT support portal with AI-powered ticket response drafting using Claude API. Features Azure SQL row-level security and human approval workflows via Teams and Power Automate.",
+    category: "AI / SaaS",
+    tech: ["Next.js", "TypeScript", "Azure SQL", "Claude API", "Power Automate"],
     featured: true,
   },
   {
-    title: "Knowledge Base RAG System",
+    title: "Multi-Tenant Data Catalog",
     description:
-      "Retrieval-augmented generation pipeline for searching and synthesizing information across client documentation, meeting notes, and IT knowledge bases.",
-    category: "AI / ML",
-    tech: ["Python", "LangChain", "Vector DB", "Claude API"],
-    featured: false,
+      "A data catalog platform that auto-discovers database schemas and generates AI-powered metadata descriptions. Features full-text search and encrypted credential management across tenants.",
+    category: "Data / AI",
+    tech: ["FastAPI", "Next.js", "Python", "Claude API", "PostgreSQL"],
+    featured: true,
+  },
+  {
+    title: "Crew Certification Platform",
+    description:
+      "Regulatory-grade aviation platform tracking pilot proficiency checks and medical certificates against Transport Canada regulations (CAR 725.21, 404.04). Features AI-powered PDF ingestion with human review and real-time expiry alerts.",
+    category: "Enterprise / AI",
+    tech: ["Next.js", "TypeScript", "Azure", "Claude API", "SQL"],
+    featured: true,
+  },
+  {
+    title: "DHL Predictive Analytics Pipelines",
+    description:
+      "Production-grade data pipelines integrating high-volume operational and financial data from Snowflake and SQL systems. Built predictive models for shipment pricing trends and entity resolution system preventing multi-million dollar revenue leakage.",
+    category: "Data Engineering",
+    tech: ["Python", "Snowflake", "SQL", "Power BI", "Pandas", "NumPy"],
+    featured: true,
   },
 ];
