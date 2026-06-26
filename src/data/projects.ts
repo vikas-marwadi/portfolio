@@ -10,7 +10,7 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    title: "DHL Predictive Analytics Pipelines",
+    title: "Predictive Analytics Pipelines",
     description:
       "Production-grade data pipelines integrating high-volume operational and financial data from Snowflake and SQL systems. Built predictive models for shipment pricing trends and entity resolution system preventing multi-million dollar revenue leakage.",
     category: "Data Engineering",
