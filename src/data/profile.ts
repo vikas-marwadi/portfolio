@@ -48,19 +48,20 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    role: "AI Developer",
+    role: "AI Development Lead",
     company: "ForIT",
     period: "Jan 2026 - Present",
     location: "Seattle, WA · Remote",
     current: true,
     highlights: [
-      "Built production ETL pipelines using Azure Functions, syncing crew scheduling and flight operations data from VMO API on 15-minute intervals with 18+ stored procedures powering payroll-critical reports and Power BI dashboards",
-      "Architected a multi-agent AI platform on Microsoft Teams using Claude Opus/Sonnet with 129+ integrated tools across Microsoft 365, CRM, GitHub, and browser automation — deployed on Azure Container Apps",
-      "Built a white-label multi-tenant IT support portal with AI-powered ticket response drafting, Azure SQL row-level security, and human approval workflows via Teams and Power Automate",
-      "Developed a regulatory-grade crew certification platform for aviation, tracking pilot proficiency checks and medical certificates against Transport Canada regulations with AI-powered PDF ingestion",
-      "Created a multi-tenant data catalog platform (FastAPI + Next.js) that auto-discovers database schemas and generates AI-powered metadata descriptions with full-text search",
-      "Built AgentDB — an LLM-agnostic database agent enabling any AI model to safely explore schemas, run queries, and manage DDL with a 3-tier permission system and sandbox mode",
-      "Designed and built a full-stack personal project and client management platform (Next.js, PostgreSQL, Prisma) powered by Claude API — featuring AI-driven document intake for automatic data extraction from PDFs and meeting notes, LLM-based support request triage with confidence scoring that auto-routes tickets to the correct project phase and type, and an embeddable client-facing support widget, consolidating end-to-end project workflow into a single tool",
+      "Architected 15-minute-interval production ETL pipelines on Azure Functions syncing crew scheduling and flight operations from VMO API — powering 18+ stored procedures and real-time Power BI dashboards that drive payroll-critical and operational reporting across the organization",
+      "Spearheaded a 129-tool multi-agent AI platform on Microsoft Teams — integrating Microsoft 365, CRM, GitHub, and browser automation via Claude Opus/Sonnet on Azure Container Apps — eliminating cross-platform context-switching and enabling complex multi-system workflows directly within Teams",
+      "Delivered a white-label multi-tenant IT support SaaS with Claude-powered ticket response drafting, Azure SQL row-level security, and human-in-the-loop approval via Teams and Power Automate — accelerating ticket resolution while maintaining full oversight across all client tenants",
+      "Built a regulatory-grade aviation crew certification platform enforcing Transport Canada regulations (CAR 725.21, 404.04) — replacing manual spreadsheet tracking with AI-powered PDF ingestion and automated expiry alerts, eliminating compliance gaps and reducing administrative overhead",
+      "Shipped a multi-tenant data catalog (FastAPI + Next.js) that auto-discovers database schemas and generates AI-powered metadata descriptions with full-text search — cutting the time analysts spend on manual schema documentation across all tenant databases",
+      "Engineered AgentDB, an LLM-agnostic database agent with a 3-tier permission system and sandbox mode — enabling any AI model to securely interact with databases and providing a reusable, safe AI-to-database interface deployable across multiple client environments",
+      "Built a full-stack client and project management platform (Next.js, PostgreSQL, Prisma) with Claude-powered document intake auto-extracting structured data from PDFs and meeting notes, LLM triage routing support tickets to the correct project phase with confidence scoring, and an embeddable client chat widget — consolidating multi-client workflow into a single tool",
+      "Leading active benchmarking of vision and image models to evaluate accuracy, latency, and cost for an in-house document processing solution — targeting reduced dependency on third-party Document AI APIs and greater control over sensitive document handling pipelines",
     ],
     tech: [
       "TypeScript",
