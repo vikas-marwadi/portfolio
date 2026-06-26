@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/icons";
@@ -18,6 +19,57 @@ const item = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } },
 };
+
+const PHRASES = [
+  "ETL Pipelines & Data Engineering",
+  "Multi-Agent AI Systems",
+  "LLM Integration & RAG Pipelines",
+  "Cloud Architecture on Azure",
+  "Enterprise SaaS Solutions",
+];
+
+const STATS = [
+  { value: "5 Years", label: "Experience" },
+  { value: "4 Companies", label: "Worked At" },
+  { value: "50% Faster", label: "Pipeline Gains" },
+];
+
+function TypingAnimation() {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const phrase = PHRASES[phraseIndex];
+
+    if (!deleting && displayed.length < phrase.length) {
+      const t = setTimeout(() => setDisplayed(phrase.slice(0, displayed.length + 1)), 55);
+      return () => clearTimeout(t);
+    }
+
+    if (!deleting && displayed.length === phrase.length) {
+      const t = setTimeout(() => setDeleting(true), 2000);
+      return () => clearTimeout(t);
+    }
+
+    if (deleting && displayed.length > 0) {
+      const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 30);
+      return () => clearTimeout(t);
+    }
+
+    if (deleting && displayed.length === 0) {
+      setDeleting(false);
+      setPhraseIndex((i) => (i + 1) % PHRASES.length);
+    }
+  }, [displayed, deleting, phraseIndex]);
+
+  return (
+    <span className="inline-flex items-center gap-0.5">
+      <span>{displayed}</span>
+      <span className="inline-block w-0.5 h-5 bg-primary animate-pulse rounded-full" />
+    </span>
+  );
+}
 
 export function Hero() {
   return (
@@ -59,9 +111,9 @@ export function Hero() {
 
         <motion.p
           variants={item}
-          className="mx-auto mb-10 max-w-xl text-muted-foreground"
+          className="mx-auto mb-10 max-w-xl text-muted-foreground min-h-[1.5rem]"
         >
-          {profile.tagline}
+          <TypingAnimation />
         </motion.p>
 
         <motion.div
@@ -81,6 +133,22 @@ export function Hero() {
             Download Resume
             <Download className="h-4 w-4" />
           </ButtonLink>
+        </motion.div>
+
+        {/* Stats row */}
+        <motion.div
+          variants={item}
+          className="mb-8 flex items-center justify-center gap-4 sm:gap-8"
+        >
+          {STATS.map((stat) => (
+            <div
+              key={stat.label}
+              className="flex flex-col items-center rounded-xl border border-border bg-card/60 px-5 py-3 backdrop-blur-sm"
+            >
+              <span className="text-lg font-bold text-primary sm:text-xl">{stat.value}</span>
+              <span className="text-xs text-muted-foreground">{stat.label}</span>
+            </div>
+          ))}
         </motion.div>
 
         <motion.div

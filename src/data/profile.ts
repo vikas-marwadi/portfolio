@@ -13,7 +13,7 @@ export const profile = {
   email: "vikas.m1410@gmail.com",
   github: "https://github.com/vikas-marwadi",
   linkedin: "https://linkedin.com/in/vikas-marwadi",
-  location: "Toronto, Canada",
+  location: "Mississauga, Canada",
   bio: [
     "I'm a Data + AI Engineer with experience building production ETL pipelines, multi-agent AI platforms, and enterprise SaaS applications. From designing data pipelines at DHL Express to architecting AI-powered platforms at ForIT, I deliver intelligent solutions that drive measurable business impact.",
     "My expertise spans end-to-end data engineering — from Snowflake and SQL data warehousing to predictive analytics with Python — combined with deep AI integration including multi-agent architectures, RAG systems, and LLM-powered automation deployed on Azure.",
@@ -24,7 +24,7 @@ export const profile = {
       university: "Humber College",
       location: "Toronto, Canada",
       period: "2023 - 2025",
-      honors: "Dean's List — Fall 2023",
+      honors: "Dean's List — Fall 2023 · Winter 2024 · Summer 2024 · Fall 2024",
     },
     {
       degree: "Bachelor of Technology, Computer Science and Engineering",
@@ -33,7 +33,7 @@ export const profile = {
       period: "2018 - 2022",
     },
   ] as Education[],
-  languages: ["English", "Hindi", "Gujarati"],
+  languages: ["English", "Hindi", "Gujarati", "French (Beginner)"],
 };
 
 export interface Experience {
@@ -136,29 +136,39 @@ export interface SkillCategory {
 
 export const skillCategories: SkillCategory[] = [
   {
-    name: "Data Engineering",
-    skills: [
-      "ETL Pipelines",
-      "SQL",
-      "Snowflake",
-      "PostgreSQL",
-      "Data Modeling",
-      "Power BI",
-      "DAX / Power Query",
-      "Data Warehousing",
-    ],
-  },
-  {
-    name: "AI & LLM Integration",
+    name: "AI & LLM Engineering",
     skills: [
       "Claude API",
+      "OpenAI API",
       "Multi-Agent Systems",
       "RAG Pipelines",
       "LangChain",
+      "LangGraph",
+      "LlamaIndex",
+      "Semantic Kernel",
       "Vector Databases",
       "Prompt Engineering",
-      "NLP",
+      "MCP",
+      "Hugging Face",
+      "AI Agents",
       "Document AI",
+    ],
+  },
+  {
+    name: "Data Engineering",
+    skills: [
+      "ETL / ELT Pipelines",
+      "SQL",
+      "Snowflake",
+      "PostgreSQL",
+      "dbt",
+      "Apache Airflow",
+      "Azure Data Factory",
+      "PySpark",
+      "Delta Lake",
+      "Data Modeling",
+      "Power BI",
+      "DAX / Power Query",
     ],
   },
   {
@@ -167,11 +177,14 @@ export const skillCategories: SkillCategory[] = [
       "Azure",
       "Azure Functions",
       "Azure Container Apps",
+      "Azure Synapse",
       "Microsoft Graph API",
       "Power Automate",
       "Google Cloud",
       "Docker",
+      "GitHub Actions",
       "CI/CD",
+      "Terraform",
     ],
   },
   {
@@ -182,12 +195,11 @@ export const skillCategories: SkillCategory[] = [
       "JavaScript",
       "SQL",
       "PowerShell",
-      "PHP",
-      "HTML/CSS",
+      "Bash",
     ],
   },
   {
-    name: "Web & SaaS Development",
+    name: "Web & SaaS",
     skills: [
       "Next.js",
       "React",

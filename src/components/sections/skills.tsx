@@ -5,13 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { skillCategories } from "@/data/profile";
 
-const categoryColors: Record<string, "default" | "primary" | "accent"> = {
-  "AI & Machine Learning": "primary",
-  Languages: "accent",
-  "Cloud & Data": "primary",
-  Visualization: "accent",
-  "Web Development": "primary",
-};
+const ACCENT_CATEGORIES = new Set(["Languages", "Web & SaaS"]);
 
 export function Skills() {
   return (
@@ -21,22 +15,24 @@ export function Skills() {
           title="Skills & Technologies"
           subtitle="Tools and technologies I work with"
         />
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {skillCategories.map((category, i) => (
             <ScrollReveal key={category.name} delay={i * 0.1}>
-              <div className="rounded-xl border border-border bg-card p-6">
-                <h3 className="mb-4 text-sm font-semibold text-foreground uppercase tracking-wide">
-                  {category.name}
-                </h3>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <Badge
-                      key={skill}
-                      variant={categoryColors[category.name] ?? "default"}
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
+              <div className="rounded-xl bg-gradient-to-br from-primary/20 via-accent/10 to-primary/5 p-px transition-all duration-300 hover:from-primary/40 hover:via-accent/20 hover:to-primary/15 hover:shadow-lg hover:shadow-primary/10">
+                <div className="h-full rounded-xl bg-card p-6">
+                  <h3 className="mb-4 text-sm font-semibold text-primary uppercase tracking-wide">
+                    {category.name}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <Badge
+                        key={skill}
+                        variant={ACCENT_CATEGORIES.has(category.name) ? "accent" : "default"}
+                      >
+                        {skill}
+                      </Badge>
+                    ))}
+                  </div>
                 </div>
               </div>
             </ScrollReveal>
