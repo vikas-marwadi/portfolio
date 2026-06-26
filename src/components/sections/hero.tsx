@@ -227,31 +227,35 @@ export function Hero() {
         {/* Stats row */}
         <motion.div
           variants={item}
-          className="mb-8 flex items-center justify-center gap-3 sm:gap-6"
+          className="mb-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:items-stretch sm:gap-4"
         >
           {STATS.map((stat) => (
-            <div key={stat.label} className="group relative">
-              <div className="flex flex-col items-center rounded-xl border border-border bg-card/70 px-5 py-3 backdrop-blur-sm transition-all duration-200 hover:border-primary/40 hover:shadow-md hover:shadow-primary/10 cursor-default">
-                <span className="text-xl font-bold text-primary sm:text-2xl">
+            <div
+              key={stat.label}
+              className="flex w-full max-w-[220px] flex-col rounded-2xl border border-border bg-card/70 px-5 py-4 backdrop-blur-sm transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10 sm:w-auto sm:min-w-[160px]"
+            >
+              {/* Value + label */}
+              <div className="mb-3 text-center">
+                <p className="text-2xl font-bold text-primary sm:text-3xl">
                   <CountUp target={stat.value} suffix={stat.suffix} />
-                </span>
-                <span className="text-xs text-muted-foreground">{stat.label}</span>
+                </p>
+                <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  {stat.label}
+                </p>
               </div>
-              {/* Tooltip */}
-              <div className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:-translate-y-1 z-50 min-w-max">
-                <div className="rounded-lg border border-border bg-card/95 px-3 py-2 shadow-xl backdrop-blur-md">
-                  <ul className="space-y-1">
-                    {stat.details.map((d) => (
-                      <li key={d} className="flex items-center gap-1.5 text-xs text-foreground whitespace-nowrap">
-                        <span className="h-1 w-1 rounded-full bg-primary shrink-0" />
-                        {d}
-                      </li>
-                    ))}
-                  </ul>
-                  {/* Arrow */}
-                  <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 h-3 w-3 rotate-45 border-b border-r border-border bg-card/95" />
-                </div>
-              </div>
+
+              {/* Divider */}
+              <div className="mb-3 h-px w-full bg-gradient-to-r from-transparent via-border to-transparent" />
+
+              {/* Always-visible details */}
+              <ul className="space-y-1.5">
+                {stat.details.map((d) => (
+                  <li key={d} className="flex items-start gap-2 text-xs text-muted-foreground">
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70" />
+                    <span>{d}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </motion.div>
