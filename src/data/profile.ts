@@ -60,6 +60,7 @@ export const experiences: Experience[] = [
       "Developed a regulatory-grade crew certification platform for aviation, tracking pilot proficiency checks and medical certificates against Transport Canada regulations with AI-powered PDF ingestion",
       "Created a multi-tenant data catalog platform (FastAPI + Next.js) that auto-discovers database schemas and generates AI-powered metadata descriptions with full-text search",
       "Built AgentDB — an LLM-agnostic database agent enabling any AI model to safely explore schemas, run queries, and manage DDL with a 3-tier permission system and sandbox mode",
+      "Designed and built a full-stack personal project and client management platform (Next.js, PostgreSQL, Prisma) powered by Claude API — featuring AI-driven document intake for automatic data extraction from PDFs and meeting notes, LLM-based support request triage with confidence scoring that auto-routes tickets to the correct project phase and type, and an embeddable client-facing support widget, consolidating end-to-end project workflow into a single tool",
     ],
     tech: [
       "TypeScript",
@@ -68,6 +69,8 @@ export const experiences: Experience[] = [
       "Claude API",
       "Next.js",
       "FastAPI",
+      "PostgreSQL",
+      "Prisma",
       "SQL",
       "Power BI",
     ],
