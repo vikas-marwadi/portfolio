@@ -32,7 +32,7 @@ export const profile = {
       period: "2023 - 2025",
       cgpa: "3.5 / 4.0",
       coop: true,
-      honors: "Dean's List — Fall 2023 · Winter 2024 · Summer 2024 · Fall 2024",
+      honors: "Dean's List — Fall 2023 · Winter 2024 · Fall 2024 · Winter 2025",
     },
     {
       degree: "Bachelor of Technology, Computer Science and Engineering",
