@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { CustomCursor } from "@/components/ui/cursor";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -17,26 +19,26 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Vikas Marwadi — Data + AI Engineer",
+    default: "Vikas Marwadi — AI Development Lead",
     template: "%s | Vikas Marwadi",
   },
   description:
-    "Data + AI Engineer building ETL pipelines, AI agents, and enterprise SaaS solutions. Specializing in cloud architecture, LLM integration, and modern data platforms.",
+    "AI Development Lead building multi-agent systems, ETL pipelines, LLM-powered SaaS, and enterprise data platforms. Specializing in cloud architecture, LLM integration, and modern data engineering.",
   metadataBase: new URL("https://vikas-marwadi.github.io/portfolio"),
   openGraph: {
-    title: "Vikas Marwadi — Data + AI Engineer",
+    title: "Vikas Marwadi — AI Development Lead",
     description:
-      "Data + AI Engineer building ETL pipelines, AI agents, and enterprise SaaS solutions.",
+      "AI Development Lead building multi-agent systems, ETL pipelines, and enterprise AI solutions.",
     url: "https://vikas-marwadi.github.io/portfolio",
     siteName: "Vikas Marwadi",
-    locale: "en_AU",
+    locale: "en_CA",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Vikas Marwadi — Data + AI Engineer",
+    title: "Vikas Marwadi — AI Development Lead",
     description:
-      "Data + AI Engineer building ETL pipelines, AI agents, and enterprise SaaS solutions.",
+      "AI Development Lead building multi-agent systems, ETL pipelines, and enterprise AI solutions.",
   },
   robots: {
     index: true,
@@ -62,6 +64,8 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollProgress />
+          <CustomCursor />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer />

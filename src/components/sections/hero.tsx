@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import { ArrowDown, Download, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/icons";
 import { ButtonLink } from "@/components/ui/button";
@@ -29,9 +30,22 @@ const PHRASES = [
 ];
 
 const STATS = [
-  { value: "5 Years", label: "Experience" },
-  { value: "4 Companies", label: "Worked At" },
-  { value: "50% Faster", label: "Pipeline Gains" },
+  { value: 5, suffix: "+", label: "Years Experience" },
+  { value: 4, suffix: "", label: "Companies" },
+  { value: 50, suffix: "%", label: "Pipeline Gains" },
+];
+
+const PARTICLES = [
+  { size: 5,  left: "8%",  bottom: "18%", dur: "5.5s", delay: "0s",    tx: "35px"  },
+  { size: 7,  left: "22%", bottom: "32%", dur: "7s",   delay: "1.2s",  tx: "-25px" },
+  { size: 4,  left: "45%", bottom: "12%", dur: "4.5s", delay: "2.1s",  tx: "40px"  },
+  { size: 6,  left: "62%", bottom: "28%", dur: "6.5s", delay: "0.6s",  tx: "-30px" },
+  { size: 3,  left: "80%", bottom: "22%", dur: "5s",   delay: "1.8s",  tx: "22px"  },
+  { size: 5,  left: "35%", bottom: "8%",  dur: "4s",   delay: "3s",    tx: "-18px" },
+  { size: 6,  left: "55%", bottom: "38%", dur: "8s",   delay: "0.9s",  tx: "28px"  },
+  { size: 4,  left: "12%", bottom: "42%", dur: "6s",   delay: "2.4s",  tx: "-28px" },
+  { size: 3,  left: "90%", bottom: "15%", dur: "5.5s", delay: "1.5s",  tx: "15px"  },
+  { size: 5,  left: "72%", bottom: "45%", dur: "7.5s", delay: "3.5s",  tx: "-20px" },
 ];
 
 function TypingAnimation() {
@@ -41,22 +55,18 @@ function TypingAnimation() {
 
   useEffect(() => {
     const phrase = PHRASES[phraseIndex];
-
     if (!deleting && displayed.length < phrase.length) {
       const t = setTimeout(() => setDisplayed(phrase.slice(0, displayed.length + 1)), 55);
       return () => clearTimeout(t);
     }
-
     if (!deleting && displayed.length === phrase.length) {
-      const t = setTimeout(() => setDeleting(true), 2000);
+      const t = setTimeout(() => setDeleting(true), 2200);
       return () => clearTimeout(t);
     }
-
     if (deleting && displayed.length > 0) {
-      const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 30);
+      const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 28);
       return () => clearTimeout(t);
     }
-
     if (deleting && displayed.length === 0) {
       setDeleting(false);
       setPhraseIndex((i) => (i + 1) % PHRASES.length);
@@ -66,7 +76,36 @@ function TypingAnimation() {
   return (
     <span className="inline-flex items-center gap-0.5">
       <span>{displayed}</span>
-      <span className="inline-block w-0.5 h-5 bg-primary animate-pulse rounded-full" />
+      <span className="inline-block h-[1em] w-0.5 animate-pulse rounded-full bg-primary align-middle" />
+    </span>
+  );
+}
+
+function CountUp({ target, suffix = "" }: { target: number; suffix: string }) {
+  const [count, setCount] = useState(0);
+  const { ref, inView } = useInView({ triggerOnce: true });
+
+  useEffect(() => {
+    if (!inView) return;
+    let current = 0;
+    const duration = 1400;
+    const steps = 60;
+    const increment = target / steps;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        setCount(target);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+    return () => clearInterval(timer);
+  }, [inView, target]);
+
+  return (
+    <span ref={ref}>
+      {count}{suffix}
     </span>
   );
 }
@@ -77,16 +116,36 @@ export function Hero() {
       id="hero"
       className="relative flex min-h-svh items-center justify-center overflow-hidden"
     >
-      {/* Gradient background */}
+      {/* Dot grid background */}
+      <div className="hero-dot-grid pointer-events-none absolute inset-0" />
+
+      {/* Gradient overlays */}
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-transparent" />
       <div className="pointer-events-none absolute -top-24 right-0 h-96 w-96 rounded-full bg-accent/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 left-0 h-96 w-96 rounded-full bg-primary/10 blur-3xl" />
+
+      {/* Floating particles */}
+      {PARTICLES.map((p, i) => (
+        <span
+          key={i}
+          className="particle"
+          style={{
+            width: p.size,
+            height: p.size,
+            left: p.left,
+            bottom: p.bottom,
+            ["--dur" as string]: p.dur,
+            ["--delay" as string]: p.delay,
+            ["--tx" as string]: p.tx,
+          }}
+        />
+      ))}
 
       <motion.div
         variants={container}
         initial="hidden"
         animate="show"
-        className="mx-auto max-w-6xl px-4 py-32 text-center sm:px-6 lg:px-8"
+        className="relative mx-auto max-w-6xl px-4 py-32 text-center sm:px-6 lg:px-8"
       >
         <motion.p
           variants={item}
@@ -97,7 +156,7 @@ export function Hero() {
 
         <motion.h1
           variants={item}
-          className="mb-4 text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl"
+          className="gradient-text mb-4 text-4xl font-bold tracking-tight sm:text-6xl lg:text-7xl"
         >
           {profile.name}
         </motion.h1>
@@ -111,14 +170,14 @@ export function Hero() {
 
         <motion.p
           variants={item}
-          className="mx-auto mb-10 max-w-xl text-muted-foreground min-h-[1.5rem]"
+          className="mx-auto mb-10 min-h-[1.75rem] max-w-xl text-muted-foreground"
         >
           <TypingAnimation />
         </motion.p>
 
         <motion.div
           variants={item}
-          className="mb-8 flex flex-col items-center justify-center gap-4 sm:flex-row"
+          className="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <ButtonLink href="#projects" variant="primary" size="lg">
             View My Work
@@ -138,14 +197,16 @@ export function Hero() {
         {/* Stats row */}
         <motion.div
           variants={item}
-          className="mb-8 flex items-center justify-center gap-4 sm:gap-8"
+          className="mb-8 flex items-center justify-center gap-3 sm:gap-6"
         >
           {STATS.map((stat) => (
             <div
               key={stat.label}
-              className="flex flex-col items-center rounded-xl border border-border bg-card/60 px-5 py-3 backdrop-blur-sm"
+              className="flex flex-col items-center rounded-xl border border-border bg-card/70 px-5 py-3 backdrop-blur-sm transition-all hover:border-primary/40 hover:shadow-md hover:shadow-primary/10"
             >
-              <span className="text-lg font-bold text-primary sm:text-xl">{stat.value}</span>
+              <span className="text-xl font-bold text-primary sm:text-2xl">
+                <CountUp target={stat.value} suffix={stat.suffix} />
+              </span>
               <span className="text-xs text-muted-foreground">{stat.label}</span>
             </div>
           ))}
@@ -165,7 +226,7 @@ export function Hero() {
               href={social.href}
               target={social.href.startsWith("mailto") ? undefined : "_blank"}
               rel={social.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
-              className="rounded-full border border-border p-3 text-muted-foreground transition-all hover:border-primary/50 hover:text-primary"
+              className="rounded-full border border-border p-3 text-muted-foreground transition-all hover:border-primary/60 hover:bg-primary/5 hover:text-primary hover:shadow-lg hover:shadow-primary/10"
               aria-label={social.label}
             >
               <social.icon className="h-5 w-5" />

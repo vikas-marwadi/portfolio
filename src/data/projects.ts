@@ -17,4 +17,20 @@ export const projects: Project[] = [
     tech: ["Python", "Snowflake", "SQL", "Power BI", "Pandas", "NumPy"],
     featured: true,
   },
+  {
+    title: "Retail Data Categorization Using ML",
+    description:
+      "Designed and implemented a machine learning pipeline using Hugging Face's zero-shot classification model to analyze 541,000+ rows of retail data — identifying key customer behavior patterns and revenue trends to extract actionable business insights at scale.",
+    category: "ML / Data Science",
+    tech: ["Python", "Hugging Face", "Scikit-Learn", "Pandas", "NLP"],
+    featured: true,
+  },
+  {
+    title: "Hospital E-Website",
+    description:
+      "Built a secure hospital web portal using PHP, MySQL, and HTML/CSS enabling patients to access medical records via unique credentials. Streamlined patient data management and reduced paperwork overhead, improving healthcare delivery efficiency.",
+    category: "Web / Healthcare",
+    tech: ["PHP", "MySQL", "HTML/CSS"],
+    featured: true,
+  },
 ];

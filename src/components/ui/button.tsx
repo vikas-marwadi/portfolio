@@ -4,7 +4,6 @@ import type { ButtonHTMLAttributes } from "react";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "outline" | "ghost";
   size?: "sm" | "md" | "lg";
-  asChild?: boolean;
 }
 
 export function Button({
@@ -17,11 +16,11 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+        "btn-ripple inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
         variant === "primary" &&
-          "bg-primary text-primary-foreground shadow-sm hover:opacity-90",
+          "bg-primary text-primary-foreground shadow-sm hover:opacity-90 hover:shadow-md hover:shadow-primary/20",
         variant === "outline" &&
-          "border border-border bg-transparent text-foreground hover:bg-muted",
+          "border border-border bg-transparent text-foreground hover:bg-muted hover:border-primary/40",
         variant === "ghost" &&
           "text-foreground hover:bg-muted",
         size === "sm" && "h-8 px-3 text-sm",
@@ -51,11 +50,11 @@ export function ButtonLink({
   return (
     <a
       className={cn(
-        "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+        "btn-ripple inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
         variant === "primary" &&
-          "bg-primary text-primary-foreground shadow-sm hover:opacity-90",
+          "bg-primary text-primary-foreground shadow-sm hover:opacity-90 hover:shadow-lg hover:shadow-primary/25",
         variant === "outline" &&
-          "border border-border bg-transparent text-foreground hover:bg-muted",
+          "border border-border bg-transparent text-foreground hover:bg-muted hover:border-primary/40",
         variant === "ghost" &&
           "text-foreground hover:bg-muted",
         size === "sm" && "h-8 px-3 text-sm",

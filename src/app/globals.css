@@ -75,3 +75,120 @@
     scroll-behavior: smooth;
   }
 }
+
+/* ── Custom cursor (desktop / pointer: fine only) ─── */
+@media (pointer: fine) {
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+/* ── Animated gradient text ──────────────────────── */
+@keyframes gradient-flow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    oklch(0.65 0.2 265),
+    oklch(0.7 0.15 185),
+    oklch(0.72 0.18 300),
+    oklch(0.65 0.2 265)
+  );
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-flow 5s ease infinite;
+}
+
+/* ── Button ripple ───────────────────────────────── */
+@keyframes ripple-out {
+  from { transform: scale(0); opacity: 0.45; }
+  to   { transform: scale(4.5); opacity: 0; }
+}
+
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: oklch(1 0 0 / 0.25);
+  transform: scale(0);
+  transition: none;
+}
+
+.btn-ripple:active::after {
+  animation: ripple-out 0.5s ease-out forwards;
+}
+
+/* ── Hero dot grid ───────────────────────────────── */
+@keyframes grid-pulse {
+  0%, 100% { opacity: 0.22; }
+  50%       { opacity: 0.48; }
+}
+
+.hero-dot-grid {
+  background-image: radial-gradient(
+    circle,
+    oklch(0.45 0.18 265 / 0.22) 1px,
+    transparent 1px
+  );
+  background-size: 28px 28px;
+  animation: grid-pulse 7s ease-in-out infinite;
+}
+
+/* ── Floating hero particles ─────────────────────── */
+@keyframes float-particle {
+  0%   { transform: translateY(0) translateX(0) scale(1);   opacity: 0; }
+  15%  { opacity: 0.75; }
+  80%  { opacity: 0.25; }
+  100% { transform: translateY(-130px) translateX(var(--tx, 20px)) scale(0.35); opacity: 0; }
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(135deg, oklch(0.65 0.2 265 / 0.8), oklch(0.7 0.15 185 / 0.6));
+  animation: float-particle var(--dur, 5s) ease-in-out var(--delay, 0s) infinite;
+  pointer-events: none;
+}
+
+/* ── Project card cursor glow ────────────────────── */
+.project-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    500px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    oklch(0.65 0.2 265 / 0.09),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.project-glow:hover::before {
+  opacity: 1;
+}
+
+/* ── Skill badge hover glow ──────────────────────── */
+.skill-badge-glow:hover {
+  box-shadow: 0 0 10px oklch(0.65 0.2 265 / 0.35);
+}
