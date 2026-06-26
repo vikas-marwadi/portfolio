@@ -4,7 +4,6 @@ import { Experience } from "@/components/sections/experience";
 import { Skills } from "@/components/sections/skills";
 import { Projects } from "@/components/sections/projects";
 import { BlogPreview } from "@/components/sections/blog-preview";
-import { Testimonials } from "@/components/sections/testimonials";
 import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
@@ -16,7 +15,6 @@ export default function Home() {
       <Skills />
       <Projects />
       <BlogPreview />
-      <Testimonials />
       <Contact />
 
       {/* JSON-LD Person schema */}

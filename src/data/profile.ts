@@ -17,7 +17,6 @@ export const profile = {
   bio: [
     "I'm a Data + AI Engineer with experience building production ETL pipelines, multi-agent AI platforms, and enterprise SaaS applications. From designing data pipelines at DHL Express to architecting AI-powered platforms at ForIT, I deliver intelligent solutions that drive measurable business impact.",
     "My expertise spans end-to-end data engineering — from Snowflake and SQL data warehousing to predictive analytics with Python — combined with deep AI integration including multi-agent architectures, RAG systems, and LLM-powered automation deployed on Azure.",
-    "Currently building enterprise AI platforms at ForIT, including a 129+ tool multi-agent system on Microsoft Teams, regulatory crew certification platforms, and LLM-agnostic database agents — all deployed on Azure Container Apps.",
   ],
   education: [
     {
