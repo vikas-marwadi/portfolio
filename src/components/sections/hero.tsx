@@ -30,9 +30,39 @@ const PHRASES = [
 ];
 
 const STATS = [
-  { value: 3, suffix: "", label: "Industries" },
-  { value: 4, suffix: "", label: "Companies" },
-  { value: 129, suffix: "+", label: "AI Tools Built" },
+  {
+    value: 3,
+    suffix: "",
+    label: "Industries",
+    details: [
+      "🚚 Logistics & Supply Chain",
+      "✈️ Aviation & Compliance",
+      "🤖 AI Research & Document AI",
+    ],
+  },
+  {
+    value: 4,
+    suffix: "",
+    label: "Companies",
+    details: [
+      "ForIT",
+      "DHL Express",
+      "Iter Innovandi",
+      "Kintu Designs",
+    ],
+  },
+  {
+    value: 129,
+    suffix: "+",
+    label: "AI Tools Built",
+    details: [
+      "Microsoft 365 (Outlook, Teams, Calendar…)",
+      "CRM & Sales automation",
+      "GitHub & Dev workflows",
+      "Browser automation",
+      "…and 120+ more",
+    ],
+  },
 ];
 
 const PARTICLES = [
@@ -200,14 +230,28 @@ export function Hero() {
           className="mb-8 flex items-center justify-center gap-3 sm:gap-6"
         >
           {STATS.map((stat) => (
-            <div
-              key={stat.label}
-              className="flex flex-col items-center rounded-xl border border-border bg-card/70 px-5 py-3 backdrop-blur-sm transition-all hover:border-primary/40 hover:shadow-md hover:shadow-primary/10"
-            >
-              <span className="text-xl font-bold text-primary sm:text-2xl">
-                <CountUp target={stat.value} suffix={stat.suffix} />
-              </span>
-              <span className="text-xs text-muted-foreground">{stat.label}</span>
+            <div key={stat.label} className="group relative">
+              <div className="flex flex-col items-center rounded-xl border border-border bg-card/70 px-5 py-3 backdrop-blur-sm transition-all duration-200 hover:border-primary/40 hover:shadow-md hover:shadow-primary/10 cursor-default">
+                <span className="text-xl font-bold text-primary sm:text-2xl">
+                  <CountUp target={stat.value} suffix={stat.suffix} />
+                </span>
+                <span className="text-xs text-muted-foreground">{stat.label}</span>
+              </div>
+              {/* Tooltip */}
+              <div className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 opacity-0 transition-all duration-200 group-hover:opacity-100 group-hover:-translate-y-1 z-50 min-w-max">
+                <div className="rounded-lg border border-border bg-card/95 px-3 py-2 shadow-xl backdrop-blur-md">
+                  <ul className="space-y-1">
+                    {stat.details.map((d) => (
+                      <li key={d} className="flex items-center gap-1.5 text-xs text-foreground whitespace-nowrap">
+                        <span className="h-1 w-1 rounded-full bg-primary shrink-0" />
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                  {/* Arrow */}
+                  <div className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 h-3 w-3 rotate-45 border-b border-r border-border bg-card/95" />
+                </div>
+              </div>
             </div>
           ))}
         </motion.div>
