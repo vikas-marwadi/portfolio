@@ -30,9 +30,9 @@ const PHRASES = [
 ];
 
 const STATS = [
-  { value: 5, suffix: "+", label: "Years Experience" },
+  { value: 3, suffix: "", label: "Industries" },
   { value: 4, suffix: "", label: "Companies" },
-  { value: 50, suffix: "%", label: "Pipeline Gains" },
+  { value: 129, suffix: "+", label: "AI Tools Built" },
 ];
 
 const PARTICLES = [
